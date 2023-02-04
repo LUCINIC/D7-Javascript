@@ -1,0 +1,454 @@
+<html>
+  <head>
+    <style>
+      .myHeading {
+        color: red;
+      }
+
+      .b-green {
+        background-color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1 class="myClass">Questo è il titolo della pagina</h1>
+      <h2>Questo è il sottotitolo della pagina</h2>
+    </header>
+
+    <main>
+      <hr />
+
+      <ul id="firstList">
+        <li>Primo</li>
+        <li>Secondo</li>
+        <li>Terzo</li>
+      </ul>
+
+      <ul id="secondList">
+        <li>Primo</li>
+        <li>Secondo</li>
+        <li>Terzo</li>
+      </ul>
+
+      <a href="epicode.com">Questo link porta all'homepage di EPICODE</a>
+
+      <div>
+        <p>Questo testo è qui solo per gli esercizi</p>
+      </div>
+
+      <div>
+        <input
+          type="text"
+          id="input-field"
+          placeholder="input field per gli esercizi"
+        />
+      </div>
+    </main>
+
+    <div class="footer">
+      <p>Anche questo testo è qua solamente per gli esercizi!</p>
+      <h2 style="color: red">
+        Salva questa pagina sul tuo computer e aprila con VSCode per vedere le
+        domande!
+      </h2>
+    </div>
+    <script>
+      /* ESERCIZIO 1
+       Scrivi una funzione per cambiare il titolo del documento in qualcos'altro.
+      */
+
+      const changeTitle = function (newTitle) {
+        const title = document.querySelector('h1')
+        title.innerText = newTitle
+      }
+      changeTitle('new title')
+
+      /*    const changeTitle = function (newTitle) {: Questa riga definisce una funzione JavaScript con il nome changeTitle che accetta un parametro chiamato newTitle.
+
+    const title = document.querySelector('h1'): Questa riga seleziona l'elemento h1 dalla pagina HTML usando querySelector e lo assegna a una costante chiamata title.
+
+    title.innerText = newTitle: Questa riga cambia il contenuto testuale dell'elemento selezionato da querySelector impostando la proprietà innerText del costante title con il valore newTitle passato come parametro.
+
+    changeTitle('new title'): Questa riga chiama la funzione changeTitle e passa come argomento la stringa 'new title'. Questo causerà il cambiamento del titolo della pagina HTML. */
+
+      /* ESERCIZIO 2
+       Scrivi una funzione per cambiare la classe del titolo della pagina in "myHeading".
+      */
+      const addClassToTitle = function () {
+        const title = document.querySelector('h1')
+        title.classList.remove('myClass')
+        title.classList.add('myHeading')
+      }
+      addClassToTitle()
+
+      /*    const addClassToTitle = function () {: Questa riga definisce una funzione JavaScript con il nome addClassToTitle che non accetta alcun parametro.
+
+    const title = document.querySelector('h1'): Questa riga seleziona l'elemento h1 dalla pagina HTML usando querySelector e lo assegna a una costante chiamata title.
+
+    title.classList.remove('myClass'): Questa riga rimuove la classe CSS myClass dalla lista di classi dell'elemento selezionato.
+
+    title.classList.add('myHeading'): Questa riga aggiunge la classe CSS myHeading alla lista di classi dell'elemento selezionato.
+
+    addClassToTitle(): Questa riga chiama la funzione addClassToTitle. Questo causerà l'aggiunta della classe CSS myHeading all'elemento h1 nella pagina HTML. */
+
+
+      /* ESERCIZIO 3
+       Scrivi una funzione per cambiare il contenuto di tutti i p che sono discendenti di un div.
+      */
+
+      const changePcontent = function () {
+        const paragraphs = document.querySelectorAll('div p')
+        for (let i = 0; i < paragraphs.length; i++) {
+          const pEl = paragraphs[i]
+          pEl.innerText = 'new text'
+          // paragraphs[i].innerText = "new text"
+        }
+      }
+      changePcontent()
+
+      /*    const changePcontent = function () {: Questa riga definisce una funzione JavaScript con il nome changePcontent che non accetta alcun parametro.
+
+    const paragraphs = document.querySelectorAll('div p'): Questa riga seleziona tutti i paragrafi p all'interno di elementi div usando querySelectorAll e li assegna a una costante chiamata paragraphs.
+
+    for (let i = 0; i < paragraphs.length; i++) {: Questa riga inizia un ciclo for che itererà attraverso ogni elemento paragrafo nella costante paragraphs.
+
+    const pEl = paragraphs[i]: Questa riga crea una costante pEl che rappresenta il paragrafo corrente in questa iterazione del ciclo.
+
+    pEl.innerText = 'new text': Questa riga cambia il contenuto testuale dell'elemento paragrafo corrente (rappresentato da pEl) in 'new text'.
+
+    changePcontent(): Questa riga chiama la funzione changePcontent. Questo causerà il cambiamento del contenuto testuale di tutti i paragrafi all'interno di elementi div nella pagina HTML. */ 
+
+      /* ESERCIZIO 4
+       Scrivi una funzione per cambiare la proprietà href di ogni link a https://www.google.com
+      */
+
+      const changeUrls = function () {
+        const links = document.querySelectorAll('a')
+        /* const singleLink = document.querySelector("a"); //FIRST ONE, no loop
+            const link2 = document.querySelectorAll("a") */
+        for (let i = 0; i < links.length; i++) {
+          const a = links[i]
+          a.href = 'https://www.google.com'
+          //links[i].href = "https://www.google.com" <<<< SHORT VERSION
+        }
+      }
+      changeUrls()
+
+/*    const links = document.querySelectorAll('a'): questa riga seleziona tutti i link presenti nella pagina usando il metodo querySelectorAll e li assegna alla variabile links.
+
+    for (let i = 0; i < links.length; i++): questo è un ciclo for che itera su tutti i link. La variabile i viene usata come contatore.
+
+    const a = links[i]: questa riga assegna il link corrente, ottenuto dall'array links tramite l'indice i, alla variabile a.
+
+    a.href = 'https://www.google.com': questa riga modifica l'URL del link corrente assegnando il valore 'https://www.google.com' alla proprietà href.
+
+    changeUrls(): questa riga chiama la funzione changeUrls per eseguire il codice all'interno della funzione. */
+
+      /* ESERCIZIO 5
+       Scrivi una funzione per aggiungere un nuovo elemento alla seconda lista non-ordinata.
+      */
+      const addToTheSecond = function (content) {
+         document.querySelector("#secondlist")
+        //const ul = document.querySelectorAll('ul')[1]
+        //ul.innerHTML += `<li>${content}</li>`
+        const li = document.createElement("li");
+         li.innerText = "new list item";
+         ul.appendChild(li);
+      }
+      addToTheSecond('new item')
+
+      /*    const addToTheSecond = function (content) {: Questa riga dichiara una costante chiamata addToTheSecond che rappresenta una funzione anonima che prende un solo argomento, content.
+
+    document.querySelector("#secondlist"): Questa riga seleziona un elemento del DOM (Document Object Model) che ha un id di secondlist.
+
+    const li = document.createElement("li");: Questa riga crea un nuovo elemento li (elemento della lista) utilizzando il metodo createElement.
+
+    li.innerText = "new list item";: Questa riga imposta il testo interno dell'elemento li appena creato al valore "new list item".
+
+    ul.appendChild(li);: Questa riga aggiunge l'elemento li appena creato come un figlio all'elemento selezionato in precedenza con l'id secondlist.
+
+    addToTheSecond('new item'): Questa riga chiama la funzione addToTheSecond e passa come argomento il valore 'new item'. */
+
+
+      /* ESERCIZIO 6
+       Scrivi una funzione per aggiungere un secondo paragrafo al primo div.
+      */
+
+      const addParagraph = function (content) {
+        //const div = document.querySelectorAll('div')[0]
+        //document.querySelector("div")
+        
+        //div.innerHTML += `<p>${content}</p>`
+        let par = document.createElement("p")
+        par.innerText = "Hello there"
+        div.appendChild(par)
+
+        /* 
+            let div = document.querySelectorAll("div")[0]
+            let p = document.createElement("p")
+            p.innerText = content
+            div.appendChild(p) 
+            */
+      }
+      addParagraph('new paragraph')
+
+      /*    const addParagraph = function (content) {: Questa riga dichiara una costante chiamata addParagraph che rappresenta una funzione anonima che prende un solo argomento, content.
+
+    let par = document.createElement("p"): Questa riga crea un nuovo elemento di paragrafo p utilizzando il metodo createElement.
+
+    par.innerText = "Hello there": Questa riga imposta il testo interno dell'elemento par appena creato al valore "Hello there".
+
+    div.appendChild(par): Questa riga aggiunge l'elemento par appena creato come un figlio all'elemento div selezionato in seguito.
+
+    let div = document.querySelectorAll("div")[0]: Questa riga seleziona il primo elemento div nel DOM utilizzando il metodo querySelectorAll.
+
+    let p = document.createElement("p"): Questa riga crea un nuovo elemento di paragrafo p utilizzando il metodo createElement.
+
+    p.innerText = content: Questa riga imposta il testo interno dell'elemento p appena creato al valore dell'argomento content.
+
+    div.appendChild(p): Questa riga aggiunge l'elemento p appena creato come un figlio all'elemento div selezionato in precedenza.
+
+    addParagraph('new paragraph'): Questa riga chiama la funzione addParagraph e passa come argomento il valore 'new paragraph'. */
+
+      /* ESERCIZIO 7
+       Scrivi una funzione per far scomparire la prima lista non-ordinata.
+      */
+
+      const firstUlDisappear = function () {
+        const ul = document.querySelectorAll('ul')[0]
+        //querySelector("ul")
+        ul.remove()
+      }
+      //firstUlDisappear();
+
+
+      /*const firstUlDisappear = function () {: Questa riga dichiara una costante chiamata firstUlDisappear che rappresenta una funzione anonima che non prende alcun argomento.
+
+const ul = document.querySelectorAll('ul')[0]: Questa riga seleziona il primo elemento ul (elemento della lista non ordinata) nel DOM utilizzando il metodo querySelectorAll.
+
+ul.remove(): Questa riga rimuove l'elemento ul selezionato in precedenza dal DOM. 
+
+firstUlDisappear();: Questa riga chiama la funzione firstUlDisappear.*/
+
+      /* ESERCIZIO 8
+       Scrivi una funzione per rendere verde lo sfondo di ogni lista non-ordinata.
+      */
+
+      const paintItGreen = function () {
+        /* let uls = document.querySelectorAll("ul")
+            for(let i = 0; i < uls.length; i++) {
+                let ul = uls[i]
+                ul.style.background = "green"
+            }
+            //OR with FOROF
+            for(const ul of uls) {
+                ul.style.background = "green"
+            }
+            */
+
+        const uls = document.querySelectorAll('ul')
+        for (let i = 0; i < uls.length; i++) {
+          const ul = uls[i]
+          ul.classList.add('b-green')
+        }
+      }
+      paintItGreen()
+
+
+      /*    const paintItGreen = function () {: Questa riga dichiara una costante chiamata paintItGreen che rappresenta una funzione anonima che non prende alcun argomento.
+
+    const uls = document.querySelectorAll('ul'): Questa riga seleziona tutti gli elementi ul (elementi della lista non ordinata) nel DOM utilizzando il metodo querySelectorAll.
+
+    for (let i = 0; i < uls.length; i++) {: Questa riga dichiara un ciclo for che eseguirà il codice all'interno del blocco per ogni elemento ul selezionato.
+
+    const ul = uls[i]: Questa riga seleziona l'elemento ul corrente dall'array di uls utilizzando l'indice i fornito dal ciclo for.
+
+    ul.classList.add('b-green'): Questa riga aggiunge la classe b-green all'elemento ul corrente.
+
+    paintItGreen(): Questa riga chiama la funzione paintItGreen. */
+
+      /* ESERCIZIO 9
+       Rendi il tag h1 capace di cambiare colore del testo ogni volta che l'utente ci clicca sopra.
+      */
+
+      const makeItClickable = function () {
+        const title = document.querySelector('h1')
+        title.addEventListener('click', function (e) {
+          e.target.classList.toggle('myHeading')
+        })
+      }
+      makeItClickable()
+
+/*    const makeItClickable = function () {: Questa riga dichiara una costante chiamata makeItClickable che rappresenta una funzione anonima che non prende alcun argomento.
+
+    const title = document.querySelector('h1'): Questa riga seleziona l'elemento h1 (intestazione di primo livello) nel DOM utilizzando il metodo querySelector.
+
+    title.addEventListener('click', function (e) {: Questa riga registra un evento click sul titolo selezionato e fornisce una funzione di gestore di eventi che verrà eseguita ogni volta che l'evento click verrà attivato.
+
+    e.target.classList.toggle('myHeading'): Questa riga toggla la classe myHeading sul target dell'evento e (cioè l'elemento h1).
+
+    makeItClickable(): Questa riga chiama la funzione makeItClickable. */
+
+
+      /* ESERCIZIO 10
+       Cambia il testo del footer con qualcos'altro quando l'utente ci clicca sopra.
+      */
+
+      const changeFooterText = function () {
+        const footer = document.querySelector('.footer')
+        footer.addEventListener('click', function (e) {
+          e.target.innerText = 'something else'
+        })
+      }
+      changeFooterText() //if not fired, the onclick wouldn't work
+
+
+      /*    const changeFooterText = function () {: Questa riga dichiara una costante chiamata changeFooterText che rappresenta una funzione anonima che non prende alcun argomento.
+
+    const footer = document.querySelector('.footer'): Questa riga seleziona l'elemento con classe footer nel DOM utilizzando il metodo querySelector.
+
+    footer.addEventListener('click', function (e) {: Questa riga registra un evento click sul footer selezionato e fornisce una funzione di gestore di eventi che verrà eseguita ogni volta che l'evento click verrà attivato.
+
+    e.target.innerText = 'something else': Questa riga cambia il testo del target dell'evento e (cioè l'elemento con classe footer) in "something else".
+
+    changeFooterText(): Questa riga chiama la funzione changeFooterText. */
+
+      /* ESERCIZIO 11
+       Aggiungi un event listener al campo di testo nella pagina e fai in modo che dopo ogni lettera il suo valore venga mostrato in console.
+      */
+      /*
+            const inputField = document.querySelector("#input-field")
+            inputField.onkeydown = function(event) {
+                console.log(event) // always experiment
+                console.log(event.target) // our HTML <input />
+                console.log(event.target.value) // whatever you wrote in the box
+                document.createElement("div").innerHTML etc. etc. etc. 
+            }
+            inputField.addEventListener("keydown", function(event) {
+                console.log(event) // always experiment
+                console.log(event.target) // our HTML <input />
+                console.log(event.target.value) // whatever you wrote in the box
+                document.createElement("div").innerHTML etc. etc. etc. 
+            })
+
+        */
+      const inputField = document.querySelector('#input-field')
+      inputField.addEventListener('keydown', function (e) {
+        console.log(e.target.value)
+      })
+      // inputField.onkeypress = function(e) {
+      //   console.log(inputField.value);
+      // };
+
+/*const inputField = document.querySelector("#input-field"): Questa riga seleziona l'elemento con id input-field nel DOM utilizzando il metodo querySelector.
+
+inputField.onkeydown = function(event) {: Questa riga registra un evento keydown sull'input field selezionato, e fornisce una funzione di gestore di eventi che verrà eseguita ogni volta che l'evento keydown verrà attivato. Questa è una vecchia forma di gestione degli eventi e non è più raccomandata.
+
+console.log(event): Questa riga stampa un log dell'evento keydown nella console del browser.
+
+console.log(event.target): Questa riga stampa un log del target dell'evento keydown nella console del browser.
+
+console.log(event.target.value): Questa riga stampa un log del valore dell'input field che ha causato l'evento keydown nella console del browser.
+
+inputField.addEventListener("keydown", function(event) {: Questa riga registra un evento keydown sull'input field selezionato, e fornisce una funzione di gestore di eventi che verrà eseguita ogni volta che l'evento keydown verrà attivato. Questa è la modalità consigliata per gestire gli eventi.
+
+console.log(e.target.value): Questa riga stampa un log del valore dell'input field che ha causato l'evento keydown nella console del browser.
+
+inputField.onkeypress = function(e) {: Questa riga registra un evento keypress sull'input field selezionato, e fornisce una funzione di gestore di eventi che verrà eseguita ogni volta che l'evento keypress verrà attivato*/
+
+
+      /* ESERCIZIO 12
+       Crea un messaggio di benvenuto con un alert quando la pagina ha finito di caricarsi.
+      */
+
+      window.onload = function () {
+        alert('welcome')
+      }
+
+      /* ESERCIZIO 13
+       Utilizza tag HTML5 per assegnare il corretto contenuto semantico alle differenti sezioni della pagina.
+      */
+
+        /*Il codice HTML fornito utilizza alcuni tag HTML semantico, ma può essere migliorato. 
+        <html>
+  <head>
+    <style>
+      .myHeading {
+        color: red;
+      }
+
+      .b-green {
+        background-color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1 class="myClass">Questo è il titolo della pagina</h1>
+      <h2>Questo è il sottotitolo della pagina</h2>
+    </header>
+
+    <main>
+      <hr />
+
+      <h3>Lista 1</h3>
+      <ul id="firstList">
+        <li>Primo</li>
+        <li>Secondo</li>
+        <li>Terzo</li>
+      </ul>
+
+      <h3>Lista 2</h3>
+      <ul id="secondList">
+        <li>Primo</li>
+        <li>Secondo</li>
+        <li>Terzo</li>
+      </ul>
+
+      <a href="epicode.com">Questo link porta all'homepage di EPICODE</a>
+
+      <h3>Div con testo</h3>
+      <div>
+        <p>Questo testo è qui solo per gli esercizi</p>
+      </div>
+
+      <h3>Input field</h3>
+      <div>
+        <input
+          type="text"
+          id="input-field"
+          placeholder="input field per gli esercizi"
+        />
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>Anche questo testo è qua solamente per gli esercizi!</p>
+      <h2 style="color: red">
+        Salva questa pagina sul tuo computer e aprila con VSCode per vedere le
+        domande!
+      </h2>
+    </footer>
+  </body>
+</html>
+
+Nel codice sopra, ho usato i seguenti tag semantico:
+
+    <header> per la sezione di intestazione della pagina.
+    <main> per il contenuto principale della pagina.
+    <footer> per la sezione di piè di pagina.
+    <h3> per i titoli nel contenuto principale.
+    <ul> e <li> per le liste non ordinate.
+    <a> per i link.
+    <div> per le sezioni della pagina che non hanno un tag semantico più specifico.
+    <p> per i paragrafi.
+
+
+
+
+    </script>
+  </body>
+</html>
